@@ -5,7 +5,6 @@ STICK_HEIGHT = 3
 STICK_START = 20
 INPUT_COMPUTER = ""
 
-# TODO create class display
 
 class GameDisplay:
 	@staticmethod
@@ -27,17 +26,17 @@ class Game(GameDisplay):
 	def __init__(self):
 		self.sticks = STICK_START
 
-	def turnComputer(self):
+	def __turnComputer(self):
 		randomSticks = random.randint(1, 3)
 		#TODO manage amounts au sticks can't be less of 0
 		print(f"computer takes {randomSticks} sticks.")
 		self.sticks -= randomSticks
 
 	#TODO implement
-	def turnPlayer(self):
-		self.turnComputer()
+	def __turnPlayer(self):
+		self.__turnComputer()
 
-	def end(self, turnPlayer: bool):
+	def __end(self, turnPlayer: bool):
 		turnPlayer if self.playerWinDisplay() else self.computerWinDisplay()
 	
 	def start(self):
@@ -45,11 +44,11 @@ class Game(GameDisplay):
 		while (self.sticks > 0):
 			self.stickDisplay(self.sticks)
 			if (turnPlayer):
-				self.turnPlayer()
+				self.__turnPlayer()
 			else:
-				self.turnComputer()
+				self.__turnComputer()
 			turnPlayer = not turnPlayer
-		self.end(turnPlayer)
+		self.__end(turnPlayer)
 	
 
 if __name__ == '__main__':
