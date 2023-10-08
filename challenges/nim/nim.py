@@ -6,7 +6,7 @@ STICK_START = 20
 INPUT_COMPUTER = ""
 
 # TODO create class display
-def	stickDisplay(amount :int):
+def	stickDisplay(amount: int):
 	[print(f"{(STICK_CHARACTER + ' ') * amount}") for _ in range(STICK_HEIGHT)]
 
 class Game:
@@ -23,14 +23,14 @@ class Game:
 	def turnPlayer(self):
 		self.turnComputer()
 
-	def end(self, turnPlayer :bool):
+	def end(self, turnPlayer: bool):
 		if turnPlayer:
 			print("Player win's!")
 		else:
 			print("Computer win's!")
 	
 	def start(self):
-		turnPlayer :bool = False
+		turnPlayer: bool = False
 		while (self.sticks > 0):
 			if (turnPlayer):
 				self.turnPlayer()
@@ -41,6 +41,6 @@ class Game:
 	
 
 if __name__ == '__main__':
-	game :Game = Game()
+	game: Game = Game()
 	game.start()
 	
